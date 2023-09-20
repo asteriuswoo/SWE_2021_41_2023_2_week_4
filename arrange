@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd SWE_2021_41_2023_2_week_4-main
+
+for file in *; do
+  if [ -f "$file" ]; then
+    first_letter=$(echo "${file:0:1}" | tr 'A-Z' 'a-z')
+    if [ ! -d "$first_letter" ]; then
+      mkdir "$first_letter"
+    fi
+
+    mv "$file" "$first_letter/"
+  fi
+done
